@@ -1,9 +1,9 @@
 #!/bin/sh
 echo "Running Clients."
 echo "1:"
-time ./bin/client 
+time ./bin/client
 echo "2:"
-time ./bin/client2 
+time ./bin/client2
 echo "3:"
 time ./bin/client3
 echo "4:"
