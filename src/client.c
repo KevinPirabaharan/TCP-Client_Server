@@ -14,13 +14,14 @@
 #define MAXRCVLEN 8
 #define PORTNUM 2300
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
 
     int mysocket = 0, bytesSent, buffSize;
     buffSize = MAXRCVLEN;
-    
+
     char buff[buffSize];
-    char* msg;
+    char *msg;
     struct sockaddr_in deset;
     mysocket = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -36,25 +37,25 @@ int main(int argc, char *argv[]){
     }
     msg = "sample2.txt";
     FILE *fp = fopen(msg, "rb");
-    if(fp == NULL)
+    if (fp == NULL)
     {
         printf("Invalid File\n");
         return 2;
     }
     else
     {
-    	send(mysocket, msg, 21, 0); 
+        send(mysocket, msg, 21, 0);
     }
     int totBytesSent = 0;
-    while( (bytesSent = fread(buff, 1, sizeof(buff), fp)) > 0 )
+    while ((bytesSent = fread(buff, 1, sizeof(buff), fp)) > 0)
     {
         send(mysocket, buff, bytesSent, 0);
         totBytesSent = totBytesSent + bytesSent;
-    } 
-	int tmp = 0;
-	tmp = htonl((uint32_t)totBytesSent);
-	write(mysocket, &tmp, sizeof(tmp));
-	printf("%d\n", tmp);
+    }
+    int tmp = 0;
+    tmp = htonl((uint32_t)totBytesSent);
+    write(mysocket, &tmp, sizeof(tmp));
+    printf("%d\n", tmp);
     printf("Done sending! Sent %d bytes\n", totBytesSent);
 
     fclose(fp);

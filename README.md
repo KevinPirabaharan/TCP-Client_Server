@@ -19,4 +19,4 @@ HINT: The portnumbers and addresses should be hardcoded into the program.
 | **./bin/server** | This runs the server program. |
 | **./bin/client** | This runs the client program. |
 | **chmod u+x script.sh** | Initializes script for multi-clients |
-| **./script.sh** | Automates and runs dummy clients to post to server |
+| **./script.sh** | Automates and runs dummy clients to post to server **(only works if make test is run before)** |
