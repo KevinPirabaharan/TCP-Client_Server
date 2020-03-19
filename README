@@ -1,0 +1,28 @@
+Kevin Pirabaharan 0946212
+Santiago Gutierrez 0895285
+Oct 31, 2017
+CIS 3210 F17
+
+Dr. Denis Nikitenko
+//////////////////////////
+Description:
+------------------------------
+This file comprises 2 programs that act as a TCP server application and a TCP client application to send and received text data and storing it on a local text file.
+The client and server has been modified to implement a new TCP based protocol. The server has been updated to support multiple clients and take advantage of threading using Pthreads.
+HINT: The portnumbers and addresses should be hardcoded into the program.
+
+------------------------------
+Build:
+/~ make all//this create the executables server and client.
+/~ make test creates all the clients to test code with
+/~ make server //this create the executable for server only.
+/~ make client //this makes the executable for the client only.
+/~ make clean //removes the executables from the directory
+------------------------------
+Run:
+cd into the "bin" directory.
+
+1. ./server
+2. ./client
+3. Run script via chmoding the script and running it after ./script
+------------------------------

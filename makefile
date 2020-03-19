@@ -1,32 +1,31 @@
-all: pig luhn beer vowel
+all: server client
+test: server client client2 client3 client4 client5 client6
 
-numRange: _num_range/numRange.c
-	gcc -Wall -pedantic -std=c99 _num_range/numRange.c -o bin/Range
-	./bin/Range
+CC          =	gcc
+# Flags that are sent to the compiler  change the std if you wish
+CFLAGS      =	-Wall -std=c99 -pedantic -g -pthread
 
-numRewrite: _num_rewrite/numRewrite.c
-	gcc -Wall -pedantic -std=c99 _num_rewrite/numRewrite.c -o bin/Rewrite
-	./bin/Rewrite
+#add a second target to build a different program with the same library
+server: src/server.c
+	$(CC) $(CFLAGS) src/server.c -o bin/server
 
-gpa: _gpa_calculator/gpaCalculator.c
-	gcc -Wall -pedantic -std=c99 _gpa_calculator/gpaCalculator.c -o bin/GPA
-	./bin/GPA
+client: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client
 
-vowel: _vowel_replacement/vowel.c
-	gcc -Wall -pedantic -std=c99 _vowel_replacement/vowel.c -o bin/Vowel
-	./bin/Vowel
+client2: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client2
 
-beer: _beer_on_the_wall/beerOnTheWall.c
-	gcc -Wall -pedantic -std=c99 _beer_on_the_wall/beerOnTheWall.c -o bin/Beer
-	./bin/Beer
+client3: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client3
 
-pig: _game_of_pig/a1PIG.c
-	gcc -Wall -pedantic -std=c99 _game_of_pig/a1PIG.c -o bin/Game_of_Pig
-	./bin/Game_of_Pig
+client4: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client4
 
-luhn: _luhns_algorithm/LUHN.c
-	gcc -Wall -pedantic -std=c99 _luhns_algorithm/LUHN.c -o bin/Luhn
-	./bin/Luhn
+client5: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client5
+
+client6: src/client.c
+	$(CC) $(CFLAGS) src/client.c -o bin/client6
 
 clean:
-	rm bin/*
+	rm -r bin/*
